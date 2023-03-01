@@ -36,7 +36,7 @@ class PathFinder3D():
 
 
 	#main function, finds a path from the start position to the stop cell in a 3d maze filled with 0 or 1's. Uses the A* algorithm and either euclidean or manhattan distances as heuristic.
-	def find_path(self, maze_3d, start_coord, stop_coord, plot_maze=True, dot_size=200, plot_only_the_path=False, distance_metric="manhattan"):
+	def find_path(self, maze_3d, start_coord, stop_coord, plot_maze=False, dot_size=100, plot_only_the_path=False, distance_metric="manhattan"):
 		#checks if the start and stop cells are not out of bounds
 		if(start_coord[0] < 0 or start_coord[0] >= maze_3d.shape[0] or start_coord[1] < 0 or start_coord[1] >= maze_3d.shape[1] or start_coord[2] < 0 or start_coord[2] >= maze_3d.shape[2]):
 			print("Start cell is out of bounds.")
@@ -132,7 +132,7 @@ class PathFinder3D():
 	#Plots the maze in a 3D scatter plot using matplotlib, and plots the path as a red line from the green starting cell to the yellow stop cell
 	def plot_maze_and_solution(self, maze_3d, start, stop, path, dot_size=None, plot_only_the_path=False):
 		if(not dot_size):
-			dot_size = 200
+			dot_size = 100
 
 		visualization_maze = maze_3d.copy()
 
